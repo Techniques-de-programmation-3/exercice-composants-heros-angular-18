@@ -13,5 +13,7 @@ import { PiedPageComponent } from "../pied-page/pied-page.component";
   styleUrl: './page1.component.css'
 })
 export class Page1Component {
-
+  hero1 = "Superman";
+  hero2 = "The Flash";
+  hero3 = "Batman";
 }
