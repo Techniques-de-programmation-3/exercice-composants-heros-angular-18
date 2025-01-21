@@ -12,15 +12,12 @@
                 <app-carousel></app-carousel>
             </div>
             <div class="flex-container">
-                <div>
-                    <app-hero [nomHero]="hero1"></app-hero>
-                </div>
-                <div>
-                    <app-hero [nomHero]="hero2"></app-hero>
-                </div>
-                <div>
-                    <app-hero [nomHero]="hero3"></app-hero>
-                </div>
+                @for (hero of heros; track hero.nom) {
+                    
+                    <div>
+                        <app-hero [nomHero]="hero.nom"></app-hero>
+                    </div>
+                }
             </div>
         </div>
     </div>

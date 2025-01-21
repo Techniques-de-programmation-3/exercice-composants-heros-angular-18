@@ -12,12 +12,9 @@
                 <app-carousel></app-carousel>
             </div>
             <div>
-                <app-hero [nomHero]="hero1"></app-hero>
-                <app-hero [nomHero]="hero2"></app-hero>
-                <app-hero [nomHero]="hero3"></app-hero>
-                <app-hero [nomHero]="hero4"></app-hero>
-                <app-hero [nomHero]="hero5"></app-hero>
-                <app-hero [nomHero]="hero6"></app-hero>
+                @for (hero of heros; track hero.nom) {
+                    <app-hero [nomHero]="hero.nom"></app-hero>
+                }
             </div>
         </div>
     </div>
