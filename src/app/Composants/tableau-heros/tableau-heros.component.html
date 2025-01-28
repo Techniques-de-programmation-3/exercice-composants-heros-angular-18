@@ -1,9 +1,12 @@
+<div class="flex-container">
 
     <!-- Faclutatif : pour filtrer le tableau -->
-    <mat-form-field>
-        <mat-label>Filtrer</mat-label>
-        <input matInput (keyup)="applyFilter($event)" placeholder="Ex. Mia" #input>
+    <mat-form-field class="ml-auto">
+        <mat-label>Filtre</mat-label>
+        <input matInput (keyup)="applyFilter($event)" #input>
+        <mat-icon matSuffix>search</mat-icon>
     </mat-form-field>
+</div>
 
     <!-- Tableau de héros -->
     <table mat-table #tableHeros [dataSource]="dataSourceHeros" matSort>
