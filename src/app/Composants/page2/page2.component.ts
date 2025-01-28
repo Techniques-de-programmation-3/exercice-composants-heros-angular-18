@@ -5,6 +5,8 @@ import { CarouselComponent } from "../carousel/carousel.component";
 import { HeroComponent } from "../hero/hero.component";
 import { PiedPageComponent } from "../pied-page/pied-page.component";
 import { HEROS } from '../../mocks/heros';
+import { Hero } from '../../Interfaces/hero';
+import { HeroService } from '../../Services/hero.service';
 
 @Component({
   selector: 'app-page2',
@@ -14,5 +16,15 @@ import { HEROS } from '../../mocks/heros';
   styleUrl: './page2.component.css'
 })
 export class Page2Component {
-  heros = HEROS;
+  heros: Hero[] = []; //HEROS;
+
+  constructor(private heroService:HeroService) {}
+
+  ngOnInit() {
+    this.heroService.getHeros().subscribe(
+      resultat => this.heros = resultat
+    );
+  }
+
+  
 }
