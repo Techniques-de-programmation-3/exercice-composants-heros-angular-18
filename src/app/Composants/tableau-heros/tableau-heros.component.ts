@@ -25,8 +25,6 @@ export class TableauHerosComponent {
   dataSourceHeros: MatTableDataSource<Hero> = new MatTableDataSource();
   columnsToDisplay = ['nom'];
 
-  @ViewChild(MatTable) tableHeros!: MatTable<Hero>;
-
   @ViewChild(MatPaginator) paginator!: MatPaginator;  // Facultatif : pour la pagination
   @ViewChild(MatSort) sort!: MatSort;                 // Facultatif : pour le tri
 
@@ -52,13 +50,7 @@ export class TableauHerosComponent {
    */
   getHeros() { 
     this.heroService.getHeros().subscribe(
-      resultat => {
-        console.log(resultat);
-        this.dataSourceHeros = new MatTableDataSource(resultat);
-        if(this.tableHeros) {
-          this.tableHeros.renderRows();
-        }
-      }
+      resultat => this.dataSourceHeros.data = resultat
     );
   }
 
