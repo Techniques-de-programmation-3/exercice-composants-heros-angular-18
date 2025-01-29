@@ -7,7 +7,6 @@ const httpOptions = {
   headers: new HttpHeaders({ 'Content-Type': 'application/json' })
 };
 
-
 @Injectable({
   providedIn: 'root'
 })
@@ -23,5 +22,13 @@ export class HeroService {
   addHero(hero:Hero): Observable<void> {
     return this.http.post<void>(this.API_URL, hero, httpOptions);
   }
+
+  deleteHero(_id: string): Observable<void> {
+      return this.http.delete<void>(`${this.API_URL}/${_id}`);
+      /* Pour PHP vanille 
+      return this.http.delete<void>(`${this.API_URL}/id=${id}`);
+      */
+  }
+    
 
 }
