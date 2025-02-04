@@ -3,7 +3,7 @@
         <mat-form-field>
             <mat-label>Héro</mat-label>
             <input matInput placeholder="Ex. Flash" required minlength="2" maxlength="50" name="nom" 
-                [(ngModel)]="newHero.nom" #nom="ngModel" >
+                [(ngModel)]="hero.nom" #nom="ngModel" >
         </mat-form-field>
 
         <!-- Validations… mat-error -->
@@ -21,6 +21,10 @@
     </mat-dialog-content>
     <mat-dialog-actions>
         <button mat-button mat-dialog-close>Annuler</button>
-        <button mat-button [disabled]="!heroForm.form.valid" (click)="addHero(heroForm)">Créer</button>
+        @if(!hero._id) {            
+            <button mat-button [disabled]="!heroForm.form.valid" (click)="addHero(heroForm)">Créer</button>
+        } @else {
+            <button mat-button [disabled]="!heroForm.form.valid" (click)="editHero(heroForm)">Modifier</button>
+        }
     </mat-dialog-actions>
 </form>

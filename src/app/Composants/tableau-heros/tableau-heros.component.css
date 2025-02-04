@@ -13,3 +13,11 @@
 .ml-auto {
     margin-left: auto;
 }
+
+td.nom {
+    width: 100%;
+}
+
+td.actions {
+    width: 150px;
+}

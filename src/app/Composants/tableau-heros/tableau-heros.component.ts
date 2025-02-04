@@ -89,8 +89,6 @@ export class TableauHerosComponent {
       });
     
     dialogRef.afterClosed().subscribe(result => {
-      console.log("dialog fermé!");
-      console.log(result);
       if(result) {
         this._snackBar.open(result, undefined, {
           duration: 2000

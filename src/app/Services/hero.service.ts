@@ -23,12 +23,18 @@ export class HeroService {
     return this.http.post<void>(this.API_URL, hero, httpOptions);
   }
 
+  editHero(hero:Hero): Observable<void> {
+    return this.http.put<void>(`${this.API_URL}/${hero._id}`, hero, httpOptions);
+    /* Pour PHP vanille 
+      return this.http.put<void>(`${this.API_URL}/id=${hero.id}`, hero, httpOptions);
+    */
+  }
+
   deleteHero(_id: string): Observable<void> {
       return this.http.delete<void>(`${this.API_URL}/${_id}`);
       /* Pour PHP vanille 
       return this.http.delete<void>(`${this.API_URL}/id=${id}`);
       */
-  }
-    
+  }    
 
 }
