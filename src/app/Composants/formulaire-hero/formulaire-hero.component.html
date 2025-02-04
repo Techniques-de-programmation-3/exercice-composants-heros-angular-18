@@ -1,0 +1,26 @@
+<form #heroForm="ngForm">
+    <mat-dialog-content>
+        <mat-form-field>
+            <mat-label>Héro</mat-label>
+            <input matInput placeholder="Ex. Flash" required minlength="2" maxlength="50" name="nom" 
+                [(ngModel)]="newHero.nom" #nom="ngModel" >
+        </mat-form-field>
+
+        <!-- Validations… mat-error -->
+        @if(nom.invalid && (nom.dirty || nom.touched) && nom.hasError('required')) {
+            <mat-error> Le nom est obligatoire. </mat-error>
+        }
+
+        @if(nom.invalid && (nom.dirty || nom.touched) && nom.hasError('minlength')) {
+            <mat-error> Le nom doit contenir au moins 2 caractères. </mat-error>
+        }
+    
+        @if(nom.invalid && (nom.dirty || nom.touched) && nom.hasError('maxlength')) {
+            <mat-error>Le nom doit contenir au maximum 50 caractères.</mat-error>
+        }
+    </mat-dialog-content>
+    <mat-dialog-actions>
+        <button mat-button mat-dialog-close>Annuler</button>
+        <button mat-button [disabled]="!heroForm.form.valid" (click)="addHero(heroForm)">Créer</button>
+    </mat-dialog-actions>
+</form>

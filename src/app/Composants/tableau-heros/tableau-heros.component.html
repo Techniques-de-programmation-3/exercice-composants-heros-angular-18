@@ -1,26 +1,6 @@
 <div class="flex-container">
-    <form #heroFormAjout="ngForm">
-        <mat-form-field>
-            <mat-label>Héro</mat-label>
-            <input matInput placeholder="Ex. Flash" required minlength="2" maxlength="50" name="nom" 
-                [(ngModel)]="newHero.nom" #nom="ngModel" >
-        </mat-form-field>
-        <button mat-fab color="primary" aria-label="Ajouter" [disabled]="!heroFormAjout.form.valid" (click)="addHero(heroFormAjout)">
-            <mat-icon>add</mat-icon>
-        </button>
-        @if(nom.invalid && (nom.dirty || nom.touched) && nom.hasError('required')) {
-            <mat-error> Le nom est obligatoire. </mat-error>
-        }
-
-        @if(nom.invalid && (nom.dirty || nom.touched) && nom.hasError('minlength')) {
-            <mat-error> Le nom doit contenir au moins 2 caractères. </mat-error>
-        }
-       
-        @if(nom.invalid && (nom.dirty || nom.touched) && nom.hasError('maxlength')) {
-            <mat-error>Le nom doit contenir au maximum 50 caractères.</mat-error>
-        }
-    </form>
-
+    <button mat-fab color="primary" aria-label="Ajouter" (click)="openDialog(undefined)"><mat-icon>add</mat-icon></button>
+    
 
     <!-- Faclutatif : pour filtrer le tableau -->
     <mat-form-field class="ml-auto">
